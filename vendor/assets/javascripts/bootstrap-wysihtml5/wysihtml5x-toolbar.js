@@ -10124,11 +10124,15 @@ wysihtml5.Commands = Base.extend(
         anchors[a].removeAttribute(oldAttrs.item(oa).name);
       }
 
-      // Set new attributes
-      for (var j in attributes) {
-        if (attributes.hasOwnProperty(j)) {
-          anchors[a].setAttribute(j, attributes[j]);
+      if (attributes) {
+        // Set new attributes
+        for (var j in attributes) {
+          if (attributes.hasOwnProperty(j)) {
+            anchors[a].setAttribute(j, attributes[j]);
+          }
         }
+      } else {
+        wysihtml5.commands.removeLink.exec(composer, 'removeLink');
       }
 
     }
@@ -12578,7 +12582,7 @@ wysihtml5.views.View = Base.extend(
         element             = this.element,
         focusBlurElement    = (browser.supportsEventsInIframeCorrectly() || this.sandbox.getContentEditable) ? element : this.sandbox.getWindow(),
         pasteEvents         = ["drop", "paste"],
-        interactionEvents   = ["drop", "paste", "mouseup"/*, "focus", "keyup"*/];
+        interactionEvents   = ["drop", "paste", "mouseup", "focus", "keyup"];
 
     // --------- destroy:composer event ---------
     dom.observe(container, "DOMNodeRemoved", function() {
