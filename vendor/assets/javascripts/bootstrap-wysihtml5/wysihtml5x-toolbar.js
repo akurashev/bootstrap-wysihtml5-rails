@@ -13724,7 +13724,7 @@ wysihtml5.views.View = Base.extend(
           if (command.group) {
             dom.addClass(command.group, CLASS_NAME_COMMAND_ACTIVE);
           }
-          if (command.dialog) {
+          if (command.dialog && false) {
             if (typeof(state) === "object" || wysihtml5.lang.object(state).isArray()) {
 
               if (!command.dialog.multiselect && wysihtml5.lang.object(state).isArray()) {
