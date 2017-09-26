@@ -7085,7 +7085,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
           var composerIsVisible   = view.element.offsetWidth > 0 && view.element.offsetHeight > 0;
           if (view.hasPlaceholderSet()) {
             view.clear();
-            view.element.focus();
+            //view.element.focus();
             if (composerIsVisible ) {
               setTimeout(function() {
                 var sel = view.selection.getSelection();
